@@ -6,6 +6,7 @@
 
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Thesis PDF](https://img.shields.io/badge/Thesis-PDF-red.svg)](docs/thesis.pdf)
+[![Award: 2nd place](https://img.shields.io/badge/Award-2nd%20place%20%C2%B7%20SVC-gold.svg)](https://drive.google.com/file/d/1I3tcatIgjIvYA8dBpTm-qJYd0IevwYsq/view?usp=sharing)
 [![Thesis DOI](https://img.shields.io/badge/Thesis%20DOI-10.13140%2FRG.2.2.27502.95042-blue.svg)](https://doi.org/10.13140/RG.2.2.27502.95042)
 
 **LaSDAICVI** (*LaSDAI Comandos de Voz Infantil*) is a keyword-spotting dataset of **Spanish speech recorded from children aged 8 to 11**. It contains **29,061 isolated-word recordings** of **60 keywords** (digits, multiplication-table results and short voice commands) spoken by **41 primary-school children** in Mérida, Venezuela.
@@ -218,7 +219,7 @@ If you use LaSDAICVI, please cite the thesis in which it was created. The thesis
 }
 ```
 
-The thesis won **2nd place** in the VII National Contest of Special Degree Projects of the Venezuelan Computing Society.
+The thesis won **2nd place** in the VII National Contest of Special Degree Projects of the Venezuelan Computing Society ([view certificate](https://drive.google.com/file/d/1I3tcatIgjIvYA8dBpTm-qJYd0IevwYsq/view?usp=sharing)).
 
 ## Acknowledgments
 
