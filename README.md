@@ -229,10 +229,6 @@ The plot uses 150 random samples per keyword and can be reproduced with [uv](htt
 uv run scripts/plot_keyword_clusters.py
 ```
 
-## Demo
-
-The author used models trained on LaSDAICVI to [play a snake game by voice](https://x.com/gilbertojosec/status/1569082186191478785).
-
 ## Ethics and responsible use
 
 These are recordings of **minors**. By using the dataset you agree to:
