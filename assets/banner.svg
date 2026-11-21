@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" role="img" aria-labelledby="t d">
+  <title id="t">LaSDAICVI — Children's Spanish Voice Commands Dataset</title>
+  <desc id="d">Illustration of a friendly robot asking "7 × 8 = ?" and two children answering out loud, with sound waves between them.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4F7FF"/>
+      <stop offset="1" stop-color="#DDE5F8"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#2F5FE0" opacity="0.10"/>
+    </pattern>
+    <clipPath id="card"><rect width="1280" height="420" rx="28"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <rect width="1280" height="420" fill="url(#bg)"/>
+    <rect width="1280" height="420" fill="url(#dots)"/>
+    <circle cx="1120" cy="60" r="190" fill="#5B8CFF" opacity="0.10"/>
+    <circle cx="640" cy="470" r="170" fill="#2F5FE0" opacity="0.06"/>
+  </g>
+
+  <!-- floating math symbols -->
+  <g font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="800" fill="#2F5FE0">
+    <text x="540" y="350" font-size="34" opacity="0.12">×</text>
+    <text x="905" y="110" font-size="30" opacity="0.14">9</text>
+    <text x="1215" y="370" font-size="34" opacity="0.12">3</text>
+    <text x="880" y="385" font-size="28" opacity="0.12">=</text>
+    <text x="1225" y="190" font-size="28" opacity="0.14">×</text>
+  </g>
+
+  <!-- title block -->
+  <g font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="72" y="168" font-size="66" font-weight="800" fill="#141925" letter-spacing="-1.5">LaSDAICVI</text>
+    <text x="74" y="212" font-size="23" font-weight="500" fill="#586278">Children's Spanish Voice Commands Dataset</text>
+    <g font-size="16" font-weight="700" fill="#2F5FE0">
+      <rect x="72" y="244" width="118" height="36" rx="18" fill="#FFFFFF" stroke="#BCC8EA" stroke-width="1.5"/>
+      <text x="131" y="267" text-anchor="middle">41 children</text>
+      <rect x="200" y="244" width="124" height="36" rx="18" fill="#FFFFFF" stroke="#BCC8EA" stroke-width="1.5"/>
+      <text x="262" y="267" text-anchor="middle">60 keywords</text>
+      <rect x="334" y="244" width="130" height="36" rx="18" fill="#FFFFFF" stroke="#BCC8EA" stroke-width="1.5"/>
+      <text x="399" y="267" text-anchor="middle">29,061 clips</text>
+    </g>
+    <text x="74" y="352" font-size="15" font-weight="600" fill="#586278" letter-spacing="0.4">LaSDAI · UNIVERSIDAD DE LOS ANDES · MÉRIDA, VENEZUELA</text>
+  </g>
+
+  <!-- robot -->
+  <ellipse cx="760" cy="384" rx="92" ry="10" fill="#2F5FE0" opacity="0.12"/>
+  <g>
+    <line x1="760" y1="118" x2="760" y2="96" stroke="#2F5FE0" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="760" cy="90" r="8" fill="#5B8CFF">
+      <animate attributeName="opacity" values="1;0.35;1" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <rect x="683" y="150" width="14" height="38" rx="7" fill="#2F5FE0"/>
+    <rect x="823" y="150" width="14" height="38" rx="7" fill="#2F5FE0"/>
+    <rect x="695" y="118" width="130" height="102" rx="30" fill="#FFFFFF" stroke="#2F5FE0" stroke-width="4"/>
+    <rect x="712" y="135" width="96" height="64" rx="20" fill="#141925"/>
+    <ellipse cx="741" cy="162" rx="7" ry="9" fill="#5B8CFF">
+      <animate attributeName="ry" values="9;9;1;9;9" keyTimes="0;0.46;0.5;0.54;1" dur="4s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="779" cy="162" rx="7" ry="9" fill="#5B8CFF">
+      <animate attributeName="ry" values="9;9;1;9;9" keyTimes="0;0.46;0.5;0.54;1" dur="4s" repeatCount="indefinite"/>
+    </ellipse>
+    <path d="M745 180 q15 11 30 0" fill="none" stroke="#5B8CFF" stroke-width="3.5" stroke-linecap="round"/>
+    <rect x="748" y="220" width="24" height="12" fill="#AFBCE0"/>
+    <path d="M707 258 L672 302" stroke="#2F5FE0" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="669" cy="306" r="11" fill="#5B8CFF"/>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="0 813 258;-14 813 258;0 813 258" dur="1.6s" repeatCount="indefinite"/>
+      <path d="M813 258 L846 226" stroke="#2F5FE0" stroke-width="14" stroke-linecap="round"/>
+      <circle cx="850" cy="222" r="11" fill="#5B8CFF"/>
+    </g>
+    <rect x="705" y="232" width="110" height="110" rx="28" fill="#FFFFFF" stroke="#2F5FE0" stroke-width="4"/>
+    <circle cx="760" cy="276" r="20" fill="#EEF3FF" stroke="#2F5FE0" stroke-width="3"/>
+    <text x="760" y="285" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#2F5FE0">×</text>
+    <rect x="732" y="312" width="56" height="8" rx="4" fill="#DDE5F8"/>
+    <rect x="726" y="342" width="24" height="30" rx="8" fill="#2F5FE0"/>
+    <rect x="770" y="342" width="24" height="30" rx="8" fill="#2F5FE0"/>
+    <rect x="716" y="366" width="40" height="14" rx="7" fill="#141925"/>
+    <rect x="764" y="366" width="40" height="14" rx="7" fill="#141925"/>
+  </g>
+
+  <!-- robot speech bubble -->
+  <g>
+    <path d="M572 62 h136 a18 18 0 0 1 18 18 v22 a18 18 0 0 1 -18 18 h-12 l-6 18 -18 -18 h-100 a18 18 0 0 1 -18 -18 v-22 a18 18 0 0 1 18 -18 z" fill="#2F5FE0"/>
+    <text x="640" y="101" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="27" font-weight="800" fill="#FFFFFF">7 × 8 = ?</text>
+  </g>
+
+  <!-- sound waves from the child to the robot -->
+  <g fill="#5B8CFF">
+    <rect x="872" y="215" width="7" height="30" rx="3.5"><animate attributeName="height" values="10;34;14;30;10" dur="1.1s" repeatCount="indefinite"/><animate attributeName="y" values="225;213;223;215;225" dur="1.1s" repeatCount="indefinite"/></rect>
+    <rect x="886" y="205" width="7" height="50" rx="3.5"><animate attributeName="height" values="30;12;46;20;30" dur="1.1s" repeatCount="indefinite"/><animate attributeName="y" values="215;224;207;220;215" dur="1.1s" repeatCount="indefinite"/></rect>
+    <rect x="900" y="198" width="7" height="64" rx="3.5"><animate attributeName="height" values="52;24;60;34;52" dur="1.1s" repeatCount="indefinite"/><animate attributeName="y" values="204;218;200;213;204" dur="1.1s" repeatCount="indefinite"/></rect>
+    <rect x="914" y="208" width="7" height="44" rx="3.5"><animate attributeName="height" values="22;44;16;40;22" dur="1.1s" repeatCount="indefinite"/><animate attributeName="y" values="219;208;222;210;219" dur="1.1s" repeatCount="indefinite"/></rect>
+    <rect x="928" y="216" width="7" height="28" rx="3.5"><animate attributeName="height" values="12;26;10;30;12" dur="1.1s" repeatCount="indefinite"/><animate attributeName="y" values="224;217;225;215;224" dur="1.1s" repeatCount="indefinite"/></rect>
+  </g>
+
+  <!-- child 1: girl with pigtails, answering -->
+  <ellipse cx="990" cy="384" rx="52" ry="8" fill="#2F5FE0" opacity="0.12"/>
+  <g>
+    <circle cx="952" cy="206" r="17" fill="#3B2A20"/>
+    <circle cx="1028" cy="206" r="17" fill="#3B2A20"/>
+    <circle cx="990" cy="200" r="37" fill="#3B2A20"/>
+    <circle cx="990" cy="216" r="32" fill="#F2C29B"/>
+    <path d="M960 206 q30 -30 60 0 q-14 -8 -30 -8 q-16 0 -30 8 z" fill="#3B2A20"/>
+    <circle cx="979" cy="216" r="3.8" fill="#141925"/>
+    <circle cx="1001" cy="216" r="3.8" fill="#141925"/>
+    <circle cx="971" cy="228" r="5" fill="#F08A8A" opacity="0.55"/>
+    <circle cx="1009" cy="228" r="5" fill="#F08A8A" opacity="0.55"/>
+    <ellipse cx="990" cy="234" rx="6" ry="4" fill="#8A3434">
+      <animate attributeName="ry" values="2;5;2;4;2" dur="1.1s" repeatCount="indefinite"/>
+    </ellipse>
+    <path d="M1016 272 L1044 236" stroke="#F2C29B" stroke-width="12" stroke-linecap="round"/>
+    <path d="M964 274 L948 310" stroke="#F2C29B" stroke-width="12" stroke-linecap="round"/>
+    <rect x="958" y="252" width="64" height="90" rx="24" fill="#FF7A6B"/>
+    <rect x="972" y="340" width="13" height="34" rx="6" fill="#2F3A56"/>
+    <rect x="995" y="340" width="13" height="34" rx="6" fill="#2F3A56"/>
+    <ellipse cx="976" cy="376" rx="12" ry="6" fill="#141925"/>
+    <ellipse cx="1004" cy="376" rx="12" ry="6" fill="#141925"/>
+  </g>
+
+  <!-- child 1 speech bubble -->
+  <g>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.3;0.38;0.9;1" dur="4s" repeatCount="indefinite"/>
+    <path d="M1018 104 h84 a18 18 0 0 1 18 18 v20 a18 18 0 0 1 -18 18 h-62 l-16 16 2 -16 h-8 a18 18 0 0 1 -18 -18 v-20 a18 18 0 0 1 18 -18 z" fill="#FFFFFF" stroke="#2F5FE0" stroke-width="3"/>
+    <text x="1060" y="142" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#2F5FE0">¡56!</text>
+  </g>
+
+  <!-- child 2: boy waving -->
+  <ellipse cx="1150" cy="384" rx="52" ry="8" fill="#2F5FE0" opacity="0.12"/>
+  <g>
+    <circle cx="1150" cy="202" r="35" fill="#1F1A17"/>
+    <circle cx="1150" cy="218" r="32" fill="#C98B5E"/>
+    <path d="M1119 208 q8 -26 31 -24 q24 -2 32 22 q-12 -10 -30 -9 q-20 0 -33 11 z" fill="#1F1A17"/>
+    <circle cx="1139" cy="218" r="3.8" fill="#141925"/>
+    <circle cx="1161" cy="218" r="3.8" fill="#141925"/>
+    <circle cx="1131" cy="230" r="5" fill="#E07B6A" opacity="0.5"/>
+    <circle cx="1169" cy="230" r="5" fill="#E07B6A" opacity="0.5"/>
+    <path d="M1140 233 q10 8 20 0" fill="none" stroke="#5A2A1E" stroke-width="3" stroke-linecap="round"/>
+    <path d="M1124 276 L1110 312" stroke="#C98B5E" stroke-width="12" stroke-linecap="round"/>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="0 1176 274;18 1176 274;0 1176 274" dur="1.4s" repeatCount="indefinite"/>
+      <path d="M1176 274 L1198 236" stroke="#C98B5E" stroke-width="12" stroke-linecap="round"/>
+    </g>
+    <rect x="1118" y="254" width="64" height="88" rx="24" fill="#FFC44D"/>
+    <rect x="1132" y="340" width="13" height="34" rx="6" fill="#2F3A56"/>
+    <rect x="1155" y="340" width="13" height="34" rx="6" fill="#2F3A56"/>
+    <ellipse cx="1136" cy="376" rx="12" ry="6" fill="#141925"/>
+    <ellipse cx="1164" cy="376" rx="12" ry="6" fill="#141925"/>
+  </g>
+</svg>

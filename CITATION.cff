@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use LaSDAICVI, please cite the thesis in which it was created."
+title: "LaSDAICVI: Children's Spanish Voice Commands Dataset"
+type: dataset
+authors:
+  - family-names: Carrillo
+    given-names: Gilberto
+    affiliation: "Universidad de los Andes, Mérida, Venezuela"
+repository-code: "https://github.com/gilbertocarrillo/LaSDAICVI"
+license: CC-BY-NC-4.0
+keywords:
+  - keyword spotting
+  - children's speech
+  - Spanish
+  - speech recognition
+  - dataset
+preferred-citation:
+  type: thesis
+  title: "Diseño de interacción humano-robot para el aprendizaje de las tablas de multiplicación e implementación de los modelos de reconocimiento del habla"
+  authors:
+    - family-names: Carrillo
+      given-names: Gilberto
+  thesis-type: "B.Sc. thesis"
+  institution:
+    name: "Universidad de los Andes"
+    city: "Mérida"
+    country: VE
+  year: 2021
+  doi: "10.13140/RG.2.2.27502.95042"
