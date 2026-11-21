@@ -9,7 +9,7 @@
 [![Award: 2nd place](https://img.shields.io/badge/Award-2nd%20place%20%C2%B7%20SVC-gold.svg)](https://drive.google.com/file/d/1I3tcatIgjIvYA8dBpTm-qJYd0IevwYsq/view?usp=sharing)
 [![Thesis DOI](https://img.shields.io/badge/Thesis%20DOI-10.13140%2FRG.2.2.27502.95042-blue.svg)](https://doi.org/10.13140/RG.2.2.27502.95042)
 
-**LaSDAICVI** (*LaSDAI Comandos de Voz Infantil*) is a keyword-spotting dataset of **Spanish speech recorded from children aged 8 to 11**. It contains **29,061 isolated-word recordings** of **60 keywords** (digits, multiplication-table results and short voice commands) spoken by **41 primary-school children**.
+**LaSDAICVI** (*LaSDAI Comandos de Voz Infantil*) is a keyword-spotting dataset of **Spanish speech recorded from children aged 8 to 11**. It contains **29,061 isolated-word recordings** of **60 keywords** (digits, multiplication-table results and short voice commands) spoken by **41 primary-school children** from Tucaní, Mérida state, Venezuela.
 
 Children's speech differs from adult speech in pitch, formants, speaking rate and pronunciation variability, and public corpora of children speaking Spanish are scarce. At the time of the thesis, LaSDAICVI was, to the author's knowledge, the first children's speech corpus in Spanish built for keyword spotting. It was built to train and evaluate keyword-spotting models for a social robot that helps children practice their multiplication tables by answering out loud.
 
@@ -141,7 +141,7 @@ print(df.groupby("label").size())
 
 ### Participants
 
-41 children enrolled in 3rd to 6th grade of primary school. Their parents signed an informed consent form, and each child signed an informed assent before recording. Each child received a random identifier; no names are stored in the dataset.
+41 children enrolled in 3rd to 6th grade of primary schools in Tucaní, Mérida state, Venezuela. Their parents signed an informed consent form, and each child signed an informed assent before recording. Each child received a random identifier; no names are stored in the dataset.
 
 | Grade | Girls | Boys | Total |
 |---|---:|---:|---:|
