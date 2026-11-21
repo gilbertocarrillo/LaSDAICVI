@@ -201,7 +201,7 @@ splits = {s: pd.read_csv(f"splits/{s}.csv") for s in ("train", "validation", "te
 train = splits["train"].assign(filepath=lambda d: "LaSDAICVI/" + d["path"])
 ```
 
-## Data augmentation and baselines
+## Data augmentation and training
 
 The `_ruido_/` clips are classroom, corridor and playground recordings that can be mixed into samples to make models robust to school noise. The 8 top-level clips were used for training and the 4 clips in `_ruido_/Test/` for testing, so that no noise recording leaks between the two.
 
@@ -217,17 +217,49 @@ Training used Keras with a batch size of 128, Adam with a learning rate of 10⁻
 
 ## Do the keywords sound different?
 
-Each point below is one recording, placed with t-SNE according to its time-normalized MFCC trajectory. Recordings of the same keyword from different children land together, so each keyword forms its own cloud, even for similar words such as `arriba` and `abajo`. t-SNE keeps local neighborhoods but not global distances, so the space between clouds is not meaningful.
+Each point below is one recording, placed with t-SNE according to its time-normalized MFCC trajectory. t-SNE keeps local neighborhoods but not global distances, so only the grouping matters, not the space between clouds.
 
 <p align="center">
-  <img src="assets/keyword-clusters.png" alt="Two t-SNE plots. On the left, the digits 0 to 9 form ten separate clouds. On the right, the 18 voice commands form 18 separate clouds." width="100%">
+  <img src="assets/keyword-clusters.png" alt="Three t-SNE plots. The 10 digits and the 18 voice commands each form separate clouds. Most of the 32 multiplication-table results also separate, but pairs such as 60 and 70 overlap." width="100%">
 </p>
 
-The plot uses 150 random samples per keyword and can be reproduced with [uv](https://docs.astral.sh/uv/):
+- **Digits and commands** form one clean cloud per keyword, even for similar words such as `arriba` and `abajo`.
+- **Most multiplication-table results** separate too, such as `10`, `12`, `14`, `20`, `49` and `81`.
+- **Some numbers overlap** because they sound alike: `60` and `70` (*sesenta*, *setenta*), `18` and `28` (*dieciocho*, *veintiocho*), `25`, `35` and `45` (all ending in *…y cinco*), and `40` and `90` (*cuarenta*, *noventa*). These are the hard cases for a model, and the reason the thesis models treat similar-sounding numbers as explicit "unknown" words.
+
+The voice commands in 3D:
+
+<p align="center">
+  <img src="assets/keyword-clusters-3d.gif" alt="Rotating 3D t-SNE of the 18 voice commands, each forming its own colored cloud." width="80%">
+</p>
+
+Both figures use 150 random samples per keyword and can be reproduced with [uv](https://docs.astral.sh/uv/):
 
 ```bash
 uv run scripts/plot_keyword_clusters.py
+uv run scripts/plot_keyword_clusters_3d.py
 ```
+
+## Baseline results
+
+The thesis trained **10 keyword-spotting models** on the [official splits](#train-validation-and-test-splits) instead of one 60-class model: one per multiplication table (2 to 9), one for the interaction commands and one for the wake word `pepe`. Each model also recognizes *silence* and *unknown*, where *unknown* includes similar-sounding numbers from other tables.
+
+Best test accuracy per model, all trained with data augmentation (Table 4.1 of the thesis):
+
+| Model | Best architecture | Clean test | Noisy test |
+|---|---|---:|---:|
+| Table of 2 | CRNN | 97.86% | 96.33% |
+| Table of 3 | GRU | 97.19% | 94.52% |
+| Table of 4 | GRU | 97.22% | 95.00% |
+| Table of 5 | GRU | 97.79% | 95.02% |
+| Table of 6 | GRU | 97.90% | 95.12% |
+| Table of 7 | GRU | 97.25% | 94.65% |
+| Table of 8 | CRNN | 96.87% | 94.08% |
+| Table of 9 | GRU | 96.12% | 93.13% |
+| Interaction commands | GRU | 98.33% | 96.86% |
+| Wake word (`pepe`) | GRU | **99.38%** | **97.82%** |
+
+Data augmentation is what makes the models robust to school noise. Without it, the same models drop to roughly 30–62% accuracy on the noisy test set. The thesis reports the full results for CNN, GRU and CRNN, plus precision, recall, F1 and confusion matrices for every model.
 
 ## Ethics and responsible use
 

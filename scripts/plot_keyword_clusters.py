@@ -42,6 +42,10 @@ COMMANDS = [
     "derecha", "detente", "falso", "izquierda", "jugar", "no", "pepe",
     "repite", "si", "siguiente", "verdadero",
 ]
+PRODUCTS = [
+    "10", "12", "14", "15", "16", "18", "20", "21", "24", "25", "27", "28", "30", "32", "35", "36",
+    "40", "42", "45", "48", "49", "50", "54", "56", "60", "63", "64", "70", "72", "80", "81", "90",
+]
 
 
 def features(path: Path) -> np.ndarray:
@@ -71,11 +75,11 @@ def embed(frame: pd.DataFrame, seed: int) -> np.ndarray:
 
 
 def draw(ax: plt.Axes, points: np.ndarray, labels: pd.Series, title: str) -> None:
-    keywords = list(dict.fromkeys(labels))
-    cmap = plt.get_cmap("tab20" if len(keywords) <= 20 else "turbo", len(keywords))
+    keywords = sorted(dict.fromkeys(labels), key=lambda k: (not k.isdigit(), int(k) if k.isdigit() else 0, k))
+    colors = list(plt.get_cmap("tab20").colors) + list(plt.get_cmap("tab20b").colors)
     for index, keyword in enumerate(keywords):
         mask = (labels == keyword).to_numpy()
-        color = cmap(index)
+        color = colors[index % len(colors)]
         ax.scatter(points[mask, 0], points[mask, 1], s=11, alpha=0.65, color=color, linewidths=0)
         cx, cy = np.median(points[mask], axis=0)
         ax.text(
@@ -98,9 +102,15 @@ def main() -> None:
     args = parser.parse_args()
 
     metadata = pd.read_csv(ROOT / "lasdaicvi.csv")
-    groups = [("Digits 0–9", DIGITS), ("Voice commands", COMMANDS)]
+    groups = [
+        ("Digits 0–9", DIGITS),
+        ("Voice commands", COMMANDS),
+        ("Multiplication-table results (tables 2–9)", PRODUCTS),
+    ]
 
-    fig, axes = plt.subplots(1, 2, figsize=(16, 8), facecolor="white")
+    fig = plt.figure(figsize=(16, 16), facecolor="white")
+    grid = fig.add_gridspec(2, 2, height_ratios=(1, 1.05))
+    axes = [fig.add_subplot(grid[0, 0]), fig.add_subplot(grid[0, 1]), fig.add_subplot(grid[1, :])]
     for ax, (title, keywords) in zip(axes, groups):
         subset = (
             metadata[metadata["label"].astype(str).isin(keywords)]
@@ -116,7 +126,7 @@ def main() -> None:
         "LaSDAICVI keywords projected with t-SNE (time-normalized MFCC)",
         fontsize=16, fontweight="bold", color="#141925", x=0.02, ha="left",
     )
-    fig.tight_layout(rect=(0, 0, 1, 0.95))
+    fig.tight_layout(rect=(0, 0, 1, 0.97))
     args.out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(args.out, dpi=110)
     print(f"saved {args.out.relative_to(ROOT)}")
