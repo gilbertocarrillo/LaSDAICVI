@@ -89,7 +89,7 @@ The 60 keywords cover three groups, chosen so that a child can answer multiplica
 │   ├── train.csv           # 21 speakers
 │   ├── validation.csv      # 10 speakers
 │   └── test.csv            # 10 speakers
-├── assets/banner.svg      # README illustration
+├── assets/               # README illustrations
 ├── docs/thesis.pdf        # full B.Sc. thesis (Spanish)
 ├── LICENSE
 ├── CITATION.cff
@@ -153,9 +153,17 @@ print(df.groupby("label").size())
 
 ### Recording setup
 
+<p align="center">
+  <img src="assets/recording-setup.svg" alt="Recording setup: a child with headphones sits 30 cm from a condenser microphone, facing a monitor that shows the keyword and the robot Pepe. Laptop 2 plays the slides and the audio prompt; laptop 1 records in Audacity; the experimenter controls both." width="100%">
+</p>
+
 Speech was recorded in a quiet room at 16 kHz, 32-bit, mono, with a condenser microphone placed 30 cm from the child and connected to a laptop running Audacity. A second laptop drove a monitor that showed each keyword on a slide, together with a 2D animation of the robot Pepe. The child heard the keyword through headphones, so the prompt did not leak into the recording.
 
 ### Protocol
+
+<p align="center">
+  <img src="assets/recording-protocol.svg" alt="Recording protocol in six steps: consent, practice, session 1, a 10-minute break with a snack, session 2, and labeling in Audacity." width="100%">
+</p>
 
 1. The experimenter explained the session, the child signed the assent form, and a short practice round with 5 words and the digits 0–9 helped nervous children get familiar with the process.
 2. Each child completed two sessions of up to 25 minutes, separated by a 10-minute break with a snack.
