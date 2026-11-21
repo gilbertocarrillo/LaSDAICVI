@@ -261,6 +261,18 @@ Best test accuracy per model, all trained with data augmentation (Table 4.1 of t
 
 Data augmentation is what makes the models robust to school noise. Without it, the same models drop to roughly 30–62% accuracy on the noisy test set. The thesis reports the full results for CNN, GRU and CRNN, plus precision, recall, F1 and confusion matrices for every model.
 
+## Limitations
+
+Know these before drawing conclusions from results on LaSDAICVI:
+
+- **One region, one accent.** All 41 children come from primary schools in Tucaní, Mérida state, so the recordings reflect Andean Venezuelan Spanish. Models trained on this data may not transfer to other Spanish varieties.
+- **A narrow age range.** Speakers are 8 to 11 years old (3rd to 6th grade). Younger children, whose speech differs more from adult speech, are not represented.
+- **Prompted, isolated words.** Each child repeated a word right after hearing it through headphones, and every sample was trimmed to a single word. This is cleaner than spontaneous speech: the thesis notes that in real interactions children swap phonemes, mispronounce words and use invented words, which increases recognition errors.
+- **Controlled recording conditions.** All audio comes from one condenser microphone 30 cm away in a quiet room. Real classrooms and robot microphones are noisier and less predictable; the 12 background-noise clips only partly simulate this, and the thesis recommends using the models in conditions similar to the training ones.
+- **Small evaluation sets.** The validation and test splits have 10 children each, so results can shift noticeably depending on which children are held out. For more stable estimates, consider cross-validation across speakers.
+- **Similar-sounding numbers.** Short numbers and pairs such as `60`/`70` or `25`/`35`/`45` are acoustically close (see the [cluster plots](#do-the-keywords-sound-different)). The thesis attributes most of its multiplication-table errors to these similarities and to the short duration of some numbers.
+- **Offline baselines only.** The [baseline results](#baseline-results) were measured on held-out recordings, not in a live interaction with a robot; testing the models with children in real time was left as future work. The training code and trained models are not included in this repository.
+
 ## Ethics and responsible use
 
 These are recordings of **minors**. By using the dataset you agree to:
