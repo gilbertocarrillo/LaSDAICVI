@@ -91,6 +91,7 @@ The 60 keywords cover three groups, chosen so that a child can answer multiplica
 │   └── test.csv            # 10 speakers
 ├── assets/               # README illustrations
 ├── docs/thesis.pdf        # full B.Sc. thesis (Spanish)
+├── scripts/               # analysis scripts
 ├── LICENSE
 ├── CITATION.cff
 └── README.md
@@ -212,7 +213,25 @@ The thesis pipeline was:
 - **Features:** 20 MFCCs from 1024-sample windows (64 ms) with a 512-sample hop (32 ms) and 40 mel filters, giving a 61 × 20 matrix per sample.
 - **Models:** CNN, GRU-based RNN and CRNN, with hyperparameters taken from prior work on the Speech Commands dataset.
 
-See Chapters 3 and 4 of the [thesis](docs/thesis.pdf) for the per-model results.
+Training used Keras with a batch size of 128, Adam with a learning rate of 10⁻⁵ and 300–400 epochs, keeping the checkpoint with the lowest validation loss. See Chapters 3 and 4 of the [thesis](docs/thesis.pdf) for the per-model results, plus the [class distribution of each model's datasets](https://docs.google.com/document/d/1QcDFi-XvZFab0Ma7n_YCGwCVCHsd-nQKETbPuG1NvRM/edit?usp=sharing) and the [learning curves](https://docs.google.com/document/d/1cJVV6Lwy9QlAGqqyMlAM9Qp7WvbFz0df7RbJ5iBsOFU/edit?usp=sharing).
+
+## Do the keywords sound different?
+
+Each point below is one recording, placed with t-SNE according to its time-normalized MFCC trajectory. Recordings of the same keyword from different children land together, so each keyword forms its own cloud, even for similar words such as `arriba` and `abajo`. t-SNE keeps local neighborhoods but not global distances, so the space between clouds is not meaningful.
+
+<p align="center">
+  <img src="assets/keyword-clusters.png" alt="Two t-SNE plots. On the left, the digits 0 to 9 form ten separate clouds. On the right, the 18 voice commands form 18 separate clouds." width="100%">
+</p>
+
+The plot uses 150 random samples per keyword and can be reproduced with [uv](https://docs.astral.sh/uv/):
+
+```bash
+uv run scripts/plot_keyword_clusters.py
+```
+
+## Demo
+
+The author used models trained on LaSDAICVI to [play a snake game by voice](https://x.com/gilbertojosec/status/1569082186191478785).
 
 ## Ethics and responsible use
 
