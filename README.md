@@ -4,6 +4,7 @@
 
 # LaSDAICVI — Children's Spanish Voice Commands Dataset
 
+[![Dataset DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24430509.svg)](https://doi.org/10.5281/zenodo.24430509)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Thesis PDF](https://img.shields.io/badge/Thesis-PDF-red.svg)](docs/thesis.pdf)
 [![Award: 2nd place](https://img.shields.io/badge/Award-2nd%20place%20%C2%B7%20SVC-gold.svg)](https://drive.google.com/file/d/1I3tcatIgjIvYA8dBpTm-qJYd0IevwYsq/view?usp=sharing)
@@ -309,7 +310,21 @@ The clips in `_ruido_/` are **not** part of the original recordings. They come f
 
 ## Citation
 
-If you use LaSDAICVI, please cite the thesis in which it was created. The thesis is written in Spanish; its title translates to *Design of Human-Robot Interaction for Learning Multiplication Tables and Implementation of Speech Recognition Models*. The full text is available in [`docs/thesis.pdf`](docs/thesis.pdf).
+If you use LaSDAICVI, please cite **both the dataset and the thesis** that describes it.
+
+**Dataset** (archived on [Zenodo](https://doi.org/10.5281/zenodo.24430509); this DOI always resolves to the latest version):
+
+```bibtex
+@dataset{carrillo2026lasdaicvi,
+  author    = {Carrillo, Gilberto},
+  title     = {LaSDAICVI: Children's Spanish Voice Commands Dataset},
+  publisher = {Zenodo},
+  year      = {2026},
+  doi       = {10.5281/zenodo.24430509}
+}
+```
+
+**Thesis** (in Spanish; the title translates to *Design of Human-Robot Interaction for Learning Multiplication Tables and Implementation of Speech Recognition Models*). The full text is in [`docs/thesis.pdf`](docs/thesis.pdf).
 
 ```bibtex
 @thesis{carrillo2021lasdaicvi,

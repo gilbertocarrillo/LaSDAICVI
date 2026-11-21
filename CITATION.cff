@@ -1,11 +1,21 @@
 cff-version: 1.2.0
-message: "If you use LaSDAICVI, please cite the thesis in which it was created."
+message: "If you use LaSDAICVI, please cite both the dataset and the thesis that describes it."
 title: "LaSDAICVI: Children's Spanish Voice Commands Dataset"
 type: dataset
 authors:
   - family-names: Carrillo
     given-names: Gilberto
     affiliation: "Universidad de los Andes, Mérida, Venezuela"
+doi: "10.5281/zenodo.24430509"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24430509"
+    description: "Concept DOI: all versions of the dataset on Zenodo"
+  - type: doi
+    value: "10.5281/zenodo.24430510"
+    description: "Version 1.0.0 on Zenodo"
+version: "1.0.0"
+date-released: "2026-11-21"
 repository-code: "https://github.com/gilbertocarrillo/LaSDAICVI"
 license: CC-BY-NC-4.0
 keywords:
