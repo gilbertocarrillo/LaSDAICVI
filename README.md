@@ -9,9 +9,9 @@
 [![Award: 2nd place](https://img.shields.io/badge/Award-2nd%20place%20%C2%B7%20SVC-gold.svg)](https://drive.google.com/file/d/1I3tcatIgjIvYA8dBpTm-qJYd0IevwYsq/view?usp=sharing)
 [![Thesis DOI](https://img.shields.io/badge/Thesis%20DOI-10.13140%2FRG.2.2.27502.95042-blue.svg)](https://doi.org/10.13140/RG.2.2.27502.95042)
 
-**LaSDAICVI** (*LaSDAI Comandos de Voz Infantil*) is a keyword-spotting dataset of **Spanish speech recorded from children aged 8 to 11**. It contains **29,061 isolated-word recordings** of **60 keywords** (digits, multiplication-table results and short voice commands) spoken by **41 primary-school children** in Mérida, Venezuela.
+**LaSDAICVI** (*LaSDAI Comandos de Voz Infantil*) is a keyword-spotting dataset of **Spanish speech recorded from children aged 8 to 11**. It contains **29,061 isolated-word recordings** of **60 keywords** (digits, multiplication-table results and short voice commands) spoken by **41 primary-school children**.
 
-Children's speech differs from adult speech in pitch, formants, speaking rate and pronunciation variability, and public corpora of children speaking Spanish are scarce. LaSDAICVI was built to train and evaluate keyword-spotting models for a social robot that helps children practice their multiplication tables by answering out loud.
+Children's speech differs from adult speech in pitch, formants, speaking rate and pronunciation variability, and public corpora of children speaking Spanish are scarce. At the time of the thesis, LaSDAICVI was, to the author's knowledge, the first children's speech corpus in Spanish built for keyword spotting. It was built to train and evaluate keyword-spotting models for a social robot that helps children practice their multiplication tables by answering out loud.
 
 The dataset was created at the **Laboratorio de Sistemas Discretos, Automatización e Integración (LaSDAI)** of the **Universidad de los Andes (ULA)**, Mérida, Venezuela, as part of the B.Sc. thesis listed in [Citation](#citation).
 
@@ -40,7 +40,7 @@ The 60 keywords cover three groups, chosen so that a child can answer multiplica
 | Multiplication-table results (tables 2–9) | 32 | `10` `12` `14` `15` `16` `18` `20` `21` `24` `25` `27` `28` `30` `32` `35` `36` `40` `42` `45` `48` `49` `50` `54` `56` `60` `63` `64` `70` `72` `80` `81` `90` |
 | Commands | 18 | `abajo` `actívate` `apágate` `aprender` `arriba` `atrás` `continúa` `derecha` `detente` `falso` `izquierda` `jugar` `no` `pepe` `repite` `si` `siguiente` `verdadero` |
 
-`pepe` is the wake word of the robot used in the project.
+`pepe` is the name and wake word of the robot used in the project. The commands were inspired by the adult [Speech Commands](https://arxiv.org/abs/1804.03209) dataset.
 
 <details>
 <summary>Samples per keyword</summary>
@@ -139,10 +139,37 @@ print(df.groupby("label").size())
 
 ## Data collection
 
-- **Participants.** 41 children enrolled in 3rd to 6th grade of primary school. Parents or legal guardians signed an informed consent form, and each child gave informed assent before recording. Each child received a random identifier; no names are stored.
-- **Setup.** Recordings were made in a quiet room with a condenser microphone placed 30 cm from the child and connected to a laptop running Audacity. Audio is stored as 16 kHz, mono, 16-bit PCM WAV.
-- **Protocol.** Each child completed two sessions of up to 25 minutes, separated by a 10-minute break with a snack. Each keyword was first shown on screen and played as audio, and the child repeated it. Numbers were shown in random order. Every session covered five repetitions of the full vocabulary, giving at least 10 samples per child and keyword. Short breaks every 42 numbers and every 18 commands prevented fatigue. Mispronounced or noisy takes were repeated.
-- **Labeling.** Every recording was manually trimmed and labeled in Audacity. Ambiguous pronunciations and samples with loud noise were discarded.
+### Participants
+
+41 children enrolled in 3rd to 6th grade of primary school. Their parents signed an informed consent form, and each child signed an informed assent before recording. Each child received a random identifier; no names are stored in the dataset.
+
+| Grade | Girls | Boys | Total |
+|---|---:|---:|---:|
+| 3rd | 5 | 5 | 10 |
+| 4th | 6 | 5 | 11 |
+| 5th | 7 | 5 | 12 |
+| 6th | 4 | 4 | 8 |
+| **Total** | **22** | **19** | **41** |
+
+### Recording setup
+
+Speech was recorded in a quiet room at 16 kHz, 32-bit, mono, with a condenser microphone placed 30 cm from the child and connected to a laptop running Audacity. A second laptop drove a monitor that showed each keyword on a slide, together with a 2D animation of the robot Pepe. The child heard the keyword through headphones, so the prompt did not leak into the recording.
+
+### Protocol
+
+1. The experimenter explained the session, the child signed the assent form, and a short practice round with 5 words and the digits 0–9 helped nervous children get familiar with the process.
+2. Each child completed two sessions of up to 25 minutes, separated by a 10-minute break with a snack.
+3. In each session the child repeated the full vocabulary 5 times, giving at least 10 samples per child and keyword. Numbers were presented in random order, with short breaks every 42 numbers and every 18 commands to avoid fatigue.
+4. A take was repeated if the child mispronounced the word, loud noise was captured, or the child or experimenter was not satisfied with it.
+
+### Labeling
+
+An experimenter manually trimmed and labeled every recording in Audacity, discarding ambiguous pronunciations and samples with loud noise. Each sample was saved as a 16-bit PCM WAV file in a folder named after its keyword.
+
+### Notes on the thesis text
+
+- Section 3.2.5 of the thesis describes the file name as `{ID}_{AGE}_{GENDER}_{GRADE}_{#}`, but the released files put gender before age, as documented in [File naming](#file-naming).
+- Table 3.8 of the thesis swaps the sample counts of `aprender` (503) and `jugar` (501). The other 58 counts match the released files.
 
 ## Train, validation and test splits
 
@@ -167,7 +194,17 @@ train = splits["train"].assign(filepath=lambda d: "LaSDAICVI/" + d["path"])
 
 ## Data augmentation and baselines
 
-The `_ruido_/` clips are classroom, corridor and playground recordings that can be mixed into training samples to make models robust to school noise. Mix the 8 top-level clips into training data and keep the 4 clips in `_ruido_/Test/` for evaluation. The thesis also applied speed perturbation with a factor drawn uniformly from 0.85–1.15, and compared CNN, GRU-based RNN and CRNN architectures on MFCC features.
+The `_ruido_/` clips are classroom, corridor and playground recordings that can be mixed into samples to make models robust to school noise. The 8 top-level clips were used for training and the 4 clips in `_ruido_/Test/` for testing, so that no noise recording leaks between the two.
+
+The thesis pipeline was:
+
+- **Speed perturbation:** 6 copies of each training sample, with a speed factor drawn uniformly from [0.85, 1.15], because children vary more in speaking rate than adults.
+- **Background noise:** each sample mixed with a noise clip at a signal-to-noise ratio drawn uniformly from [5, 30] dB.
+- **Fixed length:** each sample placed at a random position inside 2 seconds of silence, plus extra silent samples labeled as silence.
+- **Features:** 20 MFCCs from 1024-sample windows (64 ms) with a 512-sample hop (32 ms) and 40 mel filters, giving a 61 × 20 matrix per sample.
+- **Models:** CNN, GRU-based RNN and CRNN, with hyperparameters taken from prior work on the Speech Commands dataset.
+
+See Chapters 3 and 4 of the [thesis](docs/thesis.pdf) for the per-model results.
 
 ## Ethics and responsible use
 
