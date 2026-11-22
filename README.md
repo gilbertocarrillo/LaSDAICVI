@@ -5,6 +5,7 @@
 # LaSDAICVI — Children's Spanish Voice Commands Dataset
 
 [![Dataset DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24430509.svg)](https://doi.org/10.5281/zenodo.24430509)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow.svg)](https://huggingface.co/datasets/gilbertocp93/LaSDAICVI)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Thesis PDF](https://img.shields.io/badge/Thesis-PDF-red.svg)](docs/thesis.pdf)
 [![Award: 2nd place](https://img.shields.io/badge/Award-2nd%20place%20%C2%B7%20SVC-gold.svg)](https://drive.google.com/file/d/1I3tcatIgjIvYA8dBpTm-qJYd0IevwYsq/view?usp=sharing)
