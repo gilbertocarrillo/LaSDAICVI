@@ -230,6 +230,8 @@ uv run lasdaicvi-train --task interaction --arch gru --aug
 
 By default it fixes three small bugs of the original notebooks; `--thesis` replays them to match the published numbers. See [`training/README.md`](training/README.md) for installation, every option and the validation against the thesis.
 
+The 60 trained models of the thesis (Keras, TensorFlow Lite and the original weights) are on Hugging Face: [gilbertocp93/LaSDAICVI-models](https://huggingface.co/gilbertocp93/LaSDAICVI-models), gated under the same terms as the dataset.
+
 ## Do the keywords sound different?
 
 Each point below is one recording, placed with t-SNE according to its time-normalized MFCC trajectory. t-SNE keeps local neighborhoods but not global distances, so only the grouping matters, not the space between clouds.
@@ -276,7 +278,7 @@ Best test accuracy per model, all trained with data augmentation (Table 4.1 of t
 
 Data augmentation is what makes the models robust to school noise. Without it, the same models drop to roughly 30–62% accuracy on the noisy test set. The thesis reports the full results for CNN, GRU and CRNN, plus precision, recall, F1 and confusion matrices for every model.
 
-The [training code](#training-code) was checked against these results in two ways: the 60 original trained models reproduce the clean and noisy accuracy of Table 4.1 exactly, and five of the rows retrained from scratch land close to it (within 0.6 points clean on four of them; see the [validation table](training/README.md#validation-against-the-thesis)).
+The [training code](#training-code) was checked against these results in two ways: the 60 original trained models ([on Hugging Face](https://huggingface.co/gilbertocp93/LaSDAICVI-models)) reproduce the clean and noisy accuracy of Table 4.1 exactly, and five of the rows retrained from scratch land close to it (within 0.6 points clean on four of them; see the [validation table](training/README.md#validation-against-the-thesis)).
 
 ## Limitations
 
@@ -288,7 +290,7 @@ Know these before drawing conclusions from results on LaSDAICVI:
 - **Controlled recording conditions.** All audio comes from one condenser microphone 30 cm away in a quiet room. Real classrooms and robot microphones are noisier and less predictable; the 12 background-noise clips only partly simulate this, and the thesis recommends using the models in conditions similar to the training ones.
 - **Small evaluation sets.** The validation and test splits have 10 children each, so results can shift noticeably depending on which children are held out. For more stable estimates, consider cross-validation across speakers.
 - **Similar-sounding numbers.** Short numbers and pairs such as `60`/`70` or `25`/`35`/`45` are acoustically close (see the [cluster plots](#do-the-keywords-sound-different)). The thesis attributes most of its multiplication-table errors to these similarities and to the short duration of some numbers.
-- **Offline baselines only.** The [baseline results](#baseline-results) were measured on held-out recordings, not in a live interaction with a robot; deploying them on a social robot and testing the interaction with children was left as future work. The [training code](#training-code) is included; the trained models are not.
+- **Offline baselines only.** The [baseline results](#baseline-results) were measured on held-out recordings, not in a live interaction with a robot; deploying them on a social robot and testing the interaction with children was left as future work. The [training code](#training-code) is included, and the trained models are on [Hugging Face](https://huggingface.co/gilbertocp93/LaSDAICVI-models).
 
 ## Ethics and responsible use
 

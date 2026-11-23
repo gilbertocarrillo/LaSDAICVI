@@ -138,6 +138,8 @@ Table 4.1.
 The thesis' own trained models were also checked: loading each of the 60 original weight files
 into `models.build_model` and scoring the test arrays saved with it reproduces the clean and
 noisy accuracy of Table 4.1 exactly for all 60, so the models, features and metrics are the same.
+Those 60 models are published on Hugging Face:
+[gilbertocp93/LaSDAICVI-models](https://huggingface.co/gilbertocp93/LaSDAICVI-models).
 
 ## Hardware
 
