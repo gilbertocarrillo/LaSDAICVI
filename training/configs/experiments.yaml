@@ -1,0 +1,96 @@
+# Experiment definitions for the 10 tasks of the thesis (Table 4.1: 10 tasks x CNN/GRU/CRNN x
+# base/augmented = 60 rows).
+#
+# Provenance: every value below was read from the PARAMETERS cell of the thesis training
+# notebooks (labels, unknown words, `epochs`, augmentation settings, batch size, learning rate).
+# Epochs are 300 everywhere except the 400-epoch rows: base crnn of table4, table5, table8,
+# table9 and pepe, and base gru of table9.
+#
+# `unknown` is the word list used by default. For `pepe`, `unknown_thesis` keeps the notebook
+# list verbatim, including its typo '78' where '7' and '8' were meant; `--thesis` mode uses it to
+# replay the published numbers (that word has no samples, so '78' and '9' contribute nothing).
+defaults: {seed: 931001, validation_percentage: 0.25, test_percentage: 0.25, sampling_rate: 16000, n_aug_samples: 6,
+  min_rate: 0.85, max_rate: 1.15, background_frequency: 0.8, min_snr_db: 5, max_snr_db: 30, audio_duration: 2000,
+  n_mfcc: 20, n_mels: 40, n_ftt: 1024, hop_lenght: 512, batch_size: 128, learning_rate: 1.0e-05}
+tasks:
+  table2:
+    labels: ['2', '4', '6', '8', '10', '12', '14', '16', '18', '20']
+    unknown: ['32', '42', '72', '24', '54', '64', '36', '56', '28', '48', '15', '21', '25', '27', '30',
+      '40', '50', '60', '70', '80', '90']
+    epochs:
+      cnn: {aug: 300, base: 300}
+      gru: {aug: 300, base: 300}
+      crnn: {aug: 300, base: 300}
+  table3:
+    labels: ['3', '6', '9', '12', '15', '18', '21', '24', '27', '30']
+    unknown: ['63', '16', '36', '56', '49', '2', '14', '8', '28', '48', '10', '1', '20', '25', '4', '54',
+      '64', '7', '32', '35', '40', '50', '60', '70', '80', '90']
+    epochs:
+      cnn: {aug: 300, base: 300}
+      gru: {aug: 300, base: 300}
+      crnn: {aug: 300, base: 300}
+  table4:
+    labels: ['4', '8', '12', '16', '20', '24', '28', '32', '36', '40']
+    unknown: ['54', '64', '18', '48', '15', '2', '14', '10', '6', '56', '21', '25', '27', '42', '72',
+      '30', '35', '45', '49', '50', '60', '70', '80', '90']
+    epochs:
+      cnn: {aug: 300, base: 300}
+      gru: {aug: 300, base: 300}
+      crnn: {aug: 300, base: 400}
+  table5:
+    labels: ['5', '10', '15', '20', '25', '30', '35', '40', '45', '50']
+    unknown: ['16', '18', '14', '12', '21', '24', '27', '28', '32', '36', '42', '48', '49', '54', '56',
+      '60', '70', '80', '90']
+    epochs:
+      cnn: {aug: 300, base: 300}
+      gru: {aug: 300, base: 300}
+      crnn: {aug: 300, base: 400}
+  table6:
+    labels: ['6', '12', '18', '24', '30', '36', '42', '48', '54', '60']
+    unknown: ['16', '56', '2', '14', '15', '10', '8', '28', '4', '64', '20', '21', '25', '27', '32', '35',
+      '40', '45', '49', '50', '63', '70', '80', '90']
+    epochs:
+      cnn: {aug: 300, base: 300}
+      gru: {aug: 300, base: 300}
+      crnn: {aug: 300, base: 300}
+  table7:
+    labels: ['7', '14', '21', '28', '35', '42', '49', '56', '63', '70']
+    unknown: ['27', '12', '15', '1', '81', '20', '24', '25', '8', '18', '48', '45', '5', '30', '32', '36',
+      '2', '72', '40', '9', '6', '16', '54', '50', '64', '60', '3', '80', '90']
+    epochs:
+      cnn: {aug: 300, base: 300}
+      gru: {aug: 300, base: 300}
+      crnn: {aug: 300, base: 300}
+  table8:
+    labels: ['8', '16', '24', '32', '40', '48', '56', '64', '72', '80']
+    unknown: ['18', '28', '6', '36', '10', '4', '54', '20', '21', '25', '27', '2', '42', '30', '35', '45',
+      '49', '50', '60', '63', '70', '81', '90']
+    epochs:
+      cnn: {aug: 300, base: 300}
+      gru: {aug: 300, base: 300}
+      crnn: {aug: 300, base: 400}
+  table9:
+    labels: ['9', '18', '27', '36', '45', '54', '63', '72', '81', '90']
+    unknown: ['49', '8', '28', '48', '16', '10', '7', '20', '21', '24', '25', '6', '56', '30', '32', '35',
+      '5', '42', '40', '4', '64', '50', '3', '60', '2', '70', '1', '80']
+    epochs:
+      cnn: {aug: 300, base: 300}
+      gru: {aug: 300, base: 400}
+      crnn: {aug: 300, base: 400}
+  interaction:
+    labels: [si, 'no', verdadero, falso, detente, siguiente, aprender, repite, jugar, continúa]
+    unknown: [pepe, '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    epochs:
+      cnn: {aug: 300, base: 300}
+      gru: {aug: 300, base: 300}
+      crnn: {aug: 300, base: 300}
+  pepe:
+    labels: [pepe]
+    unknown: [si, 'no', verdadero, falso, detente, siguiente, aprender, repite, jugar, continúa, '0',
+      '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    unknown_thesis: [si, 'no', verdadero, falso, detente, siguiente, aprender, repite, jugar, continúa,
+      '0', '1', '2', '3', '4', '5', '6', '78', '9']
+    epochs:
+      cnn: {aug: 300, base: 300}
+      gru: {base: 300, aug: 300}
+      crnn: {aug: 300, base: 400}

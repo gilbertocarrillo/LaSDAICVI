@@ -1,0 +1,35 @@
+[project]
+name = "lasdaicvi-kws"
+version = "1.0.0"
+description = "Training code for the LaSDAICVI children's Spanish keyword-spotting models (CNN, GRU, CRNN) of the 2021 thesis"
+readme = "README.md"
+license = { text = "CC-BY-NC-4.0" }
+authors = [{ name = "Gilberto Carrillo" }]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "tensorflow>=2.18,<2.19",  # the thesis results were reproduced with TensorFlow 2.18
+    "librosa>=0.10",
+    "soundfile>=0.12",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "pyyaml",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+lasdaicvi-train = "lasdaicvi_kws.train:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.setuptools]
+packages = ["lasdaicvi_kws"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
